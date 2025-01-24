@@ -17,9 +17,8 @@ console.log('#19. TypeScript homework example file')
 
 
 
-function sumArray() {
-  const numbers = arguments[0];
-  return numbers.reduce((sum, number) => sum + number, 0);
+function sumArray(numbers: number[]): number {
+  return numbers.reduce((sum, current) => sum + current, 0);
 }
 
 
@@ -50,11 +49,8 @@ type User = {
   isActive: boolean;
 }
 
-function createUser() {
-  const name = arguments[0];
-  const age = arguments[1];
-  const isActive = arguments[2] || true;
-  return { name, age, isActive } as User;
+function createUser(name: string, age: number, isActive: boolean = true): User {
+  return { name, age, isActive };
 }
 
 const newUser = createUser('Анна', 25, true);
@@ -89,8 +85,8 @@ enum OrderStatus {
   Cancelled = 'Cancelled',
 }
 
-function getOrderStatus() {
-  const status = arguments[0];
+function getOrderStatus(a: string): string {
+  const status = a[0];
   switch (status) {
     case OrderStatus.Pending:
       return 'Замовлення очікує на обробку';
